@@ -1,0 +1,25 @@
+{
+  "name": "goodspb/live-sdk",
+  "description": "Live sdk",
+  "keywords": ["Live", "sdk"],
+  "homepage": "https://github.com/goodspb/live-sdk",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "goodspb",
+      "email": "goodspb.luo@gmail.com",
+      "homepage": "https://www.goodspb.net",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "brandonwamboldt/utilphp": "1.1.*",
+    "guzzlehttp/guzzle": "~6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Goodspb\\LiveSdk\\": "src/"
+    }
+  }
+}
