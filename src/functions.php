@@ -55,3 +55,37 @@ if (!function_exists('fnGet')) {
         return $tmp;
     }
 }
+
+
+//七牛生成 RTMP 推流地址.
+function QiniuRTMPPublishURL($domain, $hub, $streamKey, $expireAfterSeconds, $accessKey, $secretKey)
+{
+    $expire = time() + $expireAfterSeconds;
+    $path = sprintf("/%s/%s?e=%d", $hub, $streamKey, $expire);
+    $token = $accessKey . ":" . \Goodspb\LiveSdk\Sdk\Qiniu\Utils::sign($secretKey, $path);
+    return sprintf("rtmp://%s%s&token=%s", $domain, $path, $token);
+}
+
+//七牛生成 RTMP 直播地址.
+function QiniuRTMPPlayURL($domain, $hub, $streamKey)
+{
+    return sprintf("rtmp://%s/%s/%s", $domain, $hub, $streamKey);
+}
+
+//七牛生成 HLS 直播地址.
+function QiniuHLSPlayURL($domain, $hub, $streamKey)
+{
+    return sprintf("http://%s/%s/%s.m3u8", $domain, $hub, $streamKey);
+}
+
+//七牛生成 HDL 直播地址.
+function QiniuHDLPlayURL($domain, $hub, $streamKey)
+{
+    return sprintf("http://%s/%s/%s.flv", $domain, $hub, $streamKey);
+}
+
+//七牛生成直播封面地址.
+function QiniuSnapshotPlayURL($domain, $hub, $streamKey)
+{
+    return sprintf("http://%s/%s/%s.jpg", $domain, $hub, $streamKey);
+}

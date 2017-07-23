@@ -4,9 +4,9 @@ namespace Goodspb\LiveSdk\Agents;
 use Exception;
 use Goodspb\LiveSdk\AgentAbstract;
 use Goodspb\LiveSdk\Exceptions\LiveException;
-use Qiniu\Pili\Mac;
-use Qiniu\Pili\Client;
-use Qiniu\Pili\Stream;
+use Goodspb\LiveSdk\Sdk\Qiniu\Mac;
+use Goodspb\LiveSdk\Sdk\Qiniu\Client;
+use Goodspb\LiveSdk\Sdk\Qiniu\Stream;
 
 class QiniuAgent extends AgentAbstract
 {
@@ -22,7 +22,7 @@ class QiniuAgent extends AgentAbstract
     }
 
     /**
-     * @return \Qiniu\Pili\Hub
+     * @return \Goodspb\LiveSdk\Sdk\Qiniu\Hub
      */
     protected function getHub()
     {
@@ -31,7 +31,7 @@ class QiniuAgent extends AgentAbstract
 
     /**
      * @param $streamId
-     * @return \Qiniu\Pili\Stream
+     * @return \Goodspb\LiveSdk\Sdk\Qiniu\Stream
      */
     protected function getStream($streamId)
     {
@@ -53,10 +53,10 @@ class QiniuAgent extends AgentAbstract
 
         $hubName = $this->config('hub');
         return $this->setCreateResult(
-            \Qiniu\Pili\RTMPPublishURL($this->config('base_url.rtmp_push_url', ''), $hubName, $streamId, $this->config('expire', 3600), $this->config('ak', ''), $this->config('sk', '')),
-            \Qiniu\Pili\RTMPPlayURL($this->config('base_url.rtmp_play_url', ''), $hubName, $streamId),
-            \Qiniu\Pili\HLSPlayURL($this->config('base_url.hls_play_url', ''), $hubName, $streamId),
-            \Qiniu\Pili\HDLPlayURL($this->config('base_url.hdl_play_url', ''), $hubName, $streamId)
+            QiniuRTMPPublishURL($this->config('base_url.rtmp_push_url', ''), $hubName, $streamId, $this->config('expire', 3600), $this->config('ak', ''), $this->config('sk', '')),
+            QiniuRTMPPlayURL($this->config('base_url.rtmp_play_url', ''), $hubName, $streamId),
+            QiniuHLSPlayURL($this->config('base_url.hls_play_url', ''), $hubName, $streamId),
+            QiniuHDLPlayURL($this->config('base_url.hdl_play_url', ''), $hubName, $streamId)
         );
     }
 

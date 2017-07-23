@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "01d0bb486183f325c8320c0ede621fc5",
+    "content-hash": "23f74b409fa5cd409216aa249a6d9d00",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -188,65 +188,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "pili-engineering/pili-sdk-php.v2",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pili-engineering/pili-sdk-php.v2.git",
-                "reference": "2b69dcba1daba3ae7a3e6876588953238a0ee863"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/pili-engineering/pili-sdk-php.v2/2b69dcba1daba3ae7a3e6876588953238a0ee863.zip",
-                "reference": "2b69dcba1daba3ae7a3e6876588953238a0ee863",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Qiniu": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pili Engineering",
-                    "homepage": "https://github.com/pili-engineering"
-                }
-            ],
-            "description": "Pili Streaming Cloud Server-Side Library For PHP.",
-            "homepage": "https://github.com/pili-engineering/pili-sdk-php.v2",
-            "keywords": [
-                "cloud",
-                "dash",
-                "flv",
-                "hdl",
-                "hds",
-                "hls",
-                "pili",
-                "qiniu",
-                "rtmp",
-                "streaming",
-                "web-service"
-            ],
-            "time": "2017-07-05 07:19:31"
-        },
-        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -300,9 +241,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "pili-engineering/pili-sdk-php.v2": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
