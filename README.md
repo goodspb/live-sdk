@@ -74,6 +74,8 @@ var_dump($result);
 php artisan vendor:publish
 ```
 
+> 使用方法（详细需要参考非Laravel用法）
+
 ```php
 <?php
 $roomId = '123456';
