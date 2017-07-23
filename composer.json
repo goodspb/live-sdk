@@ -20,6 +20,9 @@
   "autoload": {
     "psr-4": {
       "Goodspb\\LiveSdk\\": "src/"
-    }
+    },
+    "files": [
+      "src/functions.php"
+    ]
   }
 }
