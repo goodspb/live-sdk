@@ -52,6 +52,10 @@ class Live
         }
     }
 
+    /**
+     * @return AgentAbstract
+     * @throws Exception
+     */
     protected function getAgentFromUpstreamSetting()
     {
         $upstream = $this->upstream;
@@ -79,12 +83,13 @@ class Live
     }
 
     /**
+     * @param array $config
      * @param string | null $agent
      * @return mixed | AgentAbstract
      */
-    public static function make($agent = null)
+    public static function make(array $config = [], $agent = null)
     {
-        $self = new static($agent);
+        $self = new static($agent, $config);
         return $self->getAgentFromUpstreamSetting();
     }
 
