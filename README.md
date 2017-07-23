@@ -11,32 +11,21 @@
 
 ## 使用方法
 
+#### 非 laravel 框架下的用法
+
 ```php
 <?php
 
 //配置自己相应的配置项
-$live = \Goodspb\LiveSdk\Live::make([
-    'agents' => [
-        'qiniu' => [
-            'hub' => '',        //直播空间名
-            'base_url' => [     //绑定域名
-                'rtmp_push_url' => '',
-                'rtmp_play_url' => '',
-                'hls_play_url' => '',
-                'hdl_play_url' => '',
-            ],
-            'expire' => '',     //推流地址过期时间
-            'ak' => '',
-            'sk' => '',
-        ],
-    ],
-], 'qiniu');
-
+$live = new \Goodspb\LiveSdk\Live();
+$config = require __DIR__ . 'config/live.php';
+$live->setConfig($config);
+$agent = $live->getAgent();
 // 直播间ID
 $roomId = '123456';
 
 // 创建一个直播间
-$room = $live->create($roomId);
+$room = $agent->create($roomId);
 var_dump($room);
 /*
  * array(
@@ -48,18 +37,19 @@ var_dump($room);
  */
 
 //查询房间状态
-$status = $live->status($roomId);
+$status = $agent->status($roomId);
 var_dump($status);
 /*
  * true / false
  */
 
 //关闭房间/断流
-$result = $live->close($roomId);
+$result = $agent->close($roomId);
 var_dump($result);
 /*
  * true / false
  */
 
-
 ```
+
+#### laravel 框架下的用法

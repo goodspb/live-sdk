@@ -5,23 +5,12 @@ use Exception;
 
 class Live
 {
-    protected $config;
+    protected $config = [];
     protected $upstream;
 
-    public function __construct($agent = null, array $config = [])
+    public function __construct()
     {
-        $defaultConfig = include __DIR__ . '/../config/live.php';
-        if ($config) {
-            $defaultConfig = array_replace_recursive($defaultConfig, $config);
-        }
-        $this->config = $defaultConfig;
-        if (!is_null($agent)) {
-            $this->config['upstream'] = [
-                $agent => 100
-            ];
-        }
-        $this->upstream = $this->config['upstream'];
-        $this->checkUpstream();
+
     }
 
     public function setConfig(array $config)
@@ -32,6 +21,13 @@ class Live
     protected function config($key = null, $default = null)
     {
         return is_null($key) ? $this->config : fnGet($this->config, $key, $default);
+    }
+
+    public function setUpstream($upstream)
+    {
+        $this->config['upstream'] = $upstream;
+        $this->upstream = $this->config['upstream'];
+        $this->checkUpstream();
     }
 
     protected function checkUpstream()
@@ -83,14 +79,13 @@ class Live
     }
 
     /**
-     * @param array $config
-     * @param string | null $agent
-     * @return mixed | AgentAbstract
+     * @param null $agent
+     * @return AgentAbstract
      */
-    public static function make(array $config = [], $agent = null)
+    public function getAgent($agent = null)
     {
-        $self = new static($agent, $config);
-        return $self->getAgentFromUpstreamSetting();
+        is_null($agent) or $this->setUpstream([$agent => 100]);
+        return $this->getAgentFromUpstreamSetting();
     }
 
 }
