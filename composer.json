@@ -14,8 +14,8 @@
   ],
   "require": {
     "php": ">=5.5",
-    "brandonwamboldt/utilphp": "1.1.*",
-    "guzzlehttp/guzzle": "~6.2"
+    "guzzlehttp/guzzle": "~6.2",
+    "pili-engineering/pili-sdk-php.v2": "dev-master"
   },
   "autoload": {
     "psr-4": {
