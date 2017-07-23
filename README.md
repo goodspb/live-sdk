@@ -53,3 +53,29 @@ var_dump($result);
 ```
 
 #### laravel 框架下的用法
+
+> config/app.php 加入
+
+```php
+'providers' => [
+    Goodspb\LiveSdk\LiveSdkServiceProvider::class,
+]
+```
+
+```php
+'aliases' => [
+    'Live' => Goodspb\LiveSdk\Facades\Live::class,
+]
+```
+
+> 导出配置文件 live.php 到 config 文件夹
+
+```sh
+php artisan vendor:publish
+```
+
+```php
+<?php
+$roomId = '123456';
+$live = \Live::make()->getAgent()->create($roomId);
+```
